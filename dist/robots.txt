@@ -1,0 +1,7 @@
+Sitemap: /sitemap.xml
+Crawl-delay: 10
+User-agent: *
+Allow: /
+Disallow: /static/background/
+Disallow: /static/heroes/
+Disallow: /static/dynamic/
