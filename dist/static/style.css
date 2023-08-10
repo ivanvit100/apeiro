@@ -25,7 +25,7 @@ canvas{
   filter: drop-shadow(0 0 20px #E5E7E7);
 }
 .navButton:focus, .navButton:hover, .search__label:hover > svg{
-  filter: drop-shadow(0 0 11px #E5E7E7);
+  filter: drop-shadow(0 0 3px white);
 }
 .hyper{
   position: fixed;
@@ -41,11 +41,12 @@ nav{
   grid-template-columns: 20% 15% 15% 15% 15% 20%;
 }
 .head{
-  max-width: 100%;
-  max-height: 400px;
+  max-width: 90%;
+  max-height: 320px;
   filter: drop-shadow(0 0 3px #E5E7E7);
+  animation: moveUpDown 12s infinite;
 }
-.hearBanner{
+.headBanner{
   display: flex;
   width: 100%;
   height: 100%;
@@ -54,6 +55,7 @@ nav{
 .apeiro{
   height: 90px;
   filter: drop-shadow(0 0 8px #E5E7E7);
+  animation: moveApeiro 8s infinite;
 }
 .headWrapper{
   position: absolute;
@@ -65,15 +67,20 @@ nav{
 }
 .headerH{
   margin: 5px;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 .slogan > h1{
   letter-spacing: 12px;
+  font-weight: 500;
 }
 .slogan{
   position: absolute;
   top: 50%;
-  transform: translateY(-30%);
+  transform: translate(20%, -40%);
   width: 100%;
+  max-width: 450px;
+  position
 }
 .hrWrapper > hr{
   width: 75%;
@@ -95,12 +102,14 @@ nav{
   border-left: 5px solid white;
   top: 0;
   left: 40px;
+  animation: moveAngle1 20s infinite;
 }
 .slogan::after{
   border-bottom: 5px solid white;
   border-right: 5px solid white;
   bottom: 80px;
   right: 40px;
+  animation: moveAngle2 20s infinite;
 }
 header{
   display: grid;
@@ -118,6 +127,19 @@ header{
   -webkit-text-fill-color: transparent;
   transition: all .2s linear;
 }
+.navButton::before{
+  content: " ";
+  width: 0;
+  height: 3px;
+  background-color: #E5E7E7;
+  transition: width .2s ease-in-out;
+  position: absolute;
+  top: 70px;
+  display: block;
+}
+.navButton:hover::before{
+  width: 100%;
+}
 .logo{
   display: block;
   margin-left: auto;
@@ -129,9 +151,31 @@ header{
   display: flex;
   justify-content: center;
   padding-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.headImageWrapper{
+  position: relative;
+  display: inline-block;
+  max-width: 425px;
+}
+.triangle{
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 322px;
+  height: 350px;
+  filter: drop-shadow(0 0 15px #E5E7E7);
+  animation: moveTriangle 10s infinite;
+  animation-direction: alternate-reverse;;
+}
+.triangle-line{
+  fill: none;
+  stroke: white;
+  stroke-width: 3;
 }
 .container, form, .search__input{
-  max-width: 20vw;
+  max-width: 18vw;
 }
 .search{
   --easing: cubic-bezier(0.4, 0, 0.2, 1);
@@ -147,12 +191,6 @@ header{
 }
 .search:not(:focus-within){
   --transition-time-input: 0.2s 0s;
-}
-@media (prefers-reduced-motion: reduce){
-  .search{
-    --transition-time-icon: 0s !important;
-    --transition-time-input: 0s !important;
-  }
 }
 .search__input{
   background: transparent;
@@ -227,23 +265,157 @@ header{
           animation: unhide var(--transition-time-icon) steps(1, end);
   display: block;
 }
-@-webkit-keyframes unhide{
-  from{
-    height: 0;
-    opacity: 0;
-  }
-  to{
-    height: auto;
-    opacity: 1;
+.apo > svg{
+  width: 30px;
+  height: 30px;
+  stroke: white;
+  stroke-width: 9;
+  display: inline-block;
+  position: relative;
+  top: 15px;
+  margin: 5px;
+  left: 25%;
+}
+.aboutH{
+  text-align: left;
+  padding-left: 30%;
+  grid-column: 1/3;
+}
+.intro{
+  display: grid;
+  grid-template-rows: 150px;
+  grid-template-columns: 35% 65%;
+}
+.textWrapper{
+  width: 80%;
+  text-align: justify;
+}
+.pluses{
+  color: black;
+  background-color: #FFFFFF;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 15% 30% 30% 15%;
+  margin: 30px 0;
+}
+.pluses > .aboutH{
+  grid-column: 1/5;
+  margin: 50px 0;
+}
+.pluses > .aboutH > h1{
+  display: inline-block;
+}
+
+
+
+@media (max-width: 1216px){
+  .triangle {
+    left: -55px !important;
   }
 }
-@keyframes unhide{
-  from{
-    height: 0;
-    opacity: 0;
+@media(max-width: 767px){
+  .headImageWrapper, .container, .big{
+    display: none;
   }
-  to{
-    height: auto;
-    opacity: 1;
+  .headWrapper{
+    grid-template-columns: 100%;
+  }
+  nav{
+    grid-template-columns: 25% 25% 25% 25%;
+  }
+  .slogan{
+    transform: translate(-50%, -40%);
+    left: 50%;
+  }
+}
+
+
+@media(prefers-reduced-motion: no-preference){
+  @-webkit-keyframes unhide{
+    from{
+      height: 0;
+      opacity: 0;
+    }
+    to{
+      height: auto;
+      opacity: 1;
+    }
+  }
+  @keyframes unhide{
+    from{
+      height: 0;
+      opacity: 0;
+    }
+    to{
+      height: auto;
+      opacity: 1;
+    }
+  }
+  @keyframes moveTriangle{
+    0%{
+      transform: translateY(0) rotate(-15deg);
+    }
+    50%{
+      transform: translateY(-8px) rotate(-18deg);
+    }
+    100%{
+      transform: translateY(0) rotate(-15deg);
+    }
+  }
+  @keyframes moveUpDown{
+    0%{
+      transform: translateY(0) rotate(0deg);
+    }
+    50%{
+      transform: translateY(8px) rotate(2deg);
+    }
+    100%{
+      transform: translateY(0) rotate(0deg);
+    }
+  }
+  @keyframes moveApeiro{
+    0%{
+      transform: translateY(0);
+    }
+    50%{
+      transform: translateY(10px);
+    }
+    100%{
+      transform: translateY(0);
+    }
+  }
+  @keyframes moveAngle1{
+    0%{
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25%{
+      transform: translate(-2px, -3px) rotate(-3deg);
+    }
+    50%{
+      transform: translate(0, 0) rotate(0deg);
+    }
+    75%{
+      transform: translate(3px, 2px) rotate(3deg);
+    }
+    100%{
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  @keyframes moveAngle2{
+    0%{
+      transform: translate(0, 0) rotate(0deg);
+    }
+    25%{
+      transform: translate(2px, 3px) rotate(3deg);
+    }
+    50%{
+      transform: translate(0, 0) rotate(0deg);
+    }
+    75%{
+      transform: translate(-3px, -2px) rotate(-3deg);
+    }
+    100%{
+      transform: translate(0, 0) rotate(0deg);
+    }
   }
 }
