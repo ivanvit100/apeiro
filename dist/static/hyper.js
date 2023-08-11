@@ -1,4 +1,18 @@
 "use strict";
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const animatedPath = document.querySelector("#animated-svg path animate");
+      animatedPath.beginElement();
+    }
+  });
+});
+
+const animatedSvg = document.querySelector("#animated-svg");
+observer.observe(animatedSvg);
+
+
 let screen, stars, params = {speed: .2, number: 1100, extinction: .8};
 let scrollTimer = null;
 let lastScrollTime = 0;

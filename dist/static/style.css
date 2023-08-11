@@ -1,11 +1,34 @@
-*{
+*, *:before, *:after{
   box-sizing: border-box;
+}
+*::selection{
+  background: rgba(223, 223, 223, .4);
+}
+*::-moz-selection{
+  background: rgba(223, 223, 223, .4);
 }
 html, body{
   margin: 0;
   min-height: 100vh;
-  touch-action: none;
   background-color: black;
+  cursor: url(https://ivanvit.ru/img/select.png), auto;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+*, body{
+  scrollbar-width: thin;
+  scrollbar-color: #FCFCFC rgba(0, 0, 0, 0);
+}
+*::-webkit-scrollbar{
+  width: 15px;
+}
+*::-webkit-scrollbar-track{
+  background: rgba(0, 0, 0, 0);
+}
+*::-webkit-scrollbar-thumb{
+  background-color: #FCFCFC;
+  border-radius: 20px;
+  border: 3px solid rgba(0, 0, 0, 0);
 }
 canvas{
   width: 100%;
@@ -25,7 +48,7 @@ canvas{
   filter: drop-shadow(0 0 20px #E5E7E7);
 }
 .navButton:focus, .navButton:hover, .search__label:hover > svg{
-  filter: drop-shadow(0 0 3px white);
+  filter: drop-shadow(0 0 2px white);
 }
 .hyper{
   position: fixed;
@@ -273,17 +296,28 @@ header{
   display: inline-block;
   position: relative;
   top: 15px;
-  margin: 5px;
+  margin: 1%;
   left: 25%;
 }
+.plus > .apo > svg{
+  stroke: black;
+  stroke-width: 6;
+  top: 0;
+  left: 0;
+  filter: drop-shadow(0 0 4px #999393);
+} 
 .aboutH{
   text-align: left;
   padding-left: 30%;
   grid-column: 1/3;
+  font-size: 23px;
+}
+.aboutH > h1:nth-child(1){
+  margin: 40px 0px -40px 0px;
 }
 .intro{
   display: grid;
-  grid-template-rows: 150px;
+  grid-template-rows: 180px;
   grid-template-columns: 35% 65%;
 }
 .textWrapper{
@@ -295,22 +329,67 @@ header{
   background-color: #FFFFFF;
   width: 100vw;
   display: grid;
-  grid-template-columns: 15% 30% 30% 15%;
+  grid-template-columns: 10% 30% 10% 30% 10%;
   margin: 30px 0;
+  position: relative;
+  padding: 30px 0;
+  justify-content: space-around;
+  letter-spacing: 5px;
 }
 .pluses > .aboutH{
-  grid-column: 1/5;
-  margin: 50px 0;
+  grid-column: 1/6;
+  z-index: 4;
 }
 .pluses > .aboutH > h1{
   display: inline-block;
+  margin: 0;
+}
+.plus{
+  margin: 30px 0 50px 0;
+  text-align: justify;
+  padding: 0 10px;
+  z-index: 4;
+}
+.plusName, .plus > span{
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+.plusName{
+  margin-top: -20px;
+}
+.num{
+  height: 23px;
+  margin-bottom: 20px;
+}
+.phrase{
+  grid-column: 1/6;
+  margin: 5px;
+  font-size: 27px;
+  font-weight: 850;
+  color: #2d2d2d;
+}
+.side{
+  transform: rotate(21deg);
+  position: absolute;
+  top: 10%;
+  right: -120px;
+}
+.hand{
+  height: 400px;
+  left: 0;
+  transform: rotate(0deg);
+  filter: blur(.8px);
+  animation: moveApeiro 8s infinite;
 }
 
 
 
-@media (max-width: 1216px){
-  .triangle {
+@media(max-width: 1216px){
+  .triangle{
     left: -55px !important;
+  }
+  .aboutH{
+    padding-left: 15%;
   }
 }
 @media(max-width: 767px){
@@ -326,6 +405,19 @@ header{
   .slogan{
     transform: translate(-50%, -40%);
     left: 50%;
+  }
+  .pluses{
+    grid-template-columns: 80%;
+    justify-content: center;
+    letter-spacing: 2px;
+  }
+  .plus2{
+    grid-row: 3;
+    margin-top: 0;
+  }
+  .hand{
+    top: 50%;
+    height: 300px;
   }
 }
 
@@ -375,13 +467,13 @@ header{
   }
   @keyframes moveApeiro{
     0%{
-      transform: translateY(0);
+      transform: translateY(0) rotate(0deg);
     }
     50%{
-      transform: translateY(10px);
+      transform: translateY(10px) rotate(0deg);
     }
     100%{
-      transform: translateY(0);
+      transform: translateY(0) rotate(0deg);
     }
   }
   @keyframes moveAngle1{

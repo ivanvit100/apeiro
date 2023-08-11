@@ -50,7 +50,7 @@
 		</header>
 		<div class="intro">
 			<div class="aboutH">
-				<h1 style="font-weight: 800; margin-top: 40px; margin-bottom: -20px;">О НАШЕЙ</h1>
+				<h1 style="font-weight: 800">О НАШЕЙ</h1>
 				<h1 style="font-weight: 300">КОМПАНИИ</h1>
 			</div>
 			<div class="apo">
@@ -73,6 +73,47 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
 				<h1 style="font-weight: 800">НАШИ</h1>
 				<h1 style="font-weight: 300">ПРЕИМУЩЕСТВА</h1>
 			</div>
+			<div class="space big"></div>
+			<div class="plus">
+				<img src="/static/images/01.png" alt="1" class="num">
+				<h1 class="plusName">НЕЙРОННЫЕ ТЕХНОЛОГИ</h1>
+				<div class="apo">
+					<svg viewBox="0 0 80 80">
+						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
+					</svg>
+					<svg viewBox="0 0 80 80">
+						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
+					</svg>
+				</div>
+				<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.
+				</span>
+			</div>
+			<div class="space big"></div>
+			<div class="plus plus2">
+				<img src="/static/images/02.png" alt="2" class="num">
+				<h1 class="plusName">ИГРОВОЙ ДИЗАЙН</h1>
+				<div class="apo">
+					<svg viewBox="0 0 80 80">
+						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
+					</svg>
+					<svg viewBox="0 0 80 80">
+						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
+					</svg>
+				</div>
+				<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.
+				</span>
+			</div>
+			<div class="space big"></div>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" class="side" id="animated-svg">
+				<path fill="none" d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z" stroke="#D7D7D7" stroke-width="8" stroke-dasharray="0 256.58892822265625 0">
+					<animate attributeName="stroke-dashoffset" values="0;256.58892822265625" dur="1" fill="freeze"></animate>
+				</path>
+			</svg>
+			<img src="/static/images/hand.png" alt="Фон" class="side hand">
+			<span class="phrase">Быстро. Качественно. Эффектно.</span>
+			<span class="phrase big" style="color: #D7D7D7">Быстро. Качественно. Эффектно.</span>
 		</div>
 	</div>
   </div>
