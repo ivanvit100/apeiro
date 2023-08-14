@@ -2,7 +2,7 @@
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       const animatedPath = document.querySelector("#animated-svg path animate");
       animatedPath.beginElement();
     }
@@ -22,11 +22,22 @@ let canvas = null;
 let ctx = null;
 let timer = null;
 window.onload = function(){
+	setTimeout(() => {
+		document.querySelector(".hyper").style.zIndex = 1;
+		decreaseOpacity(1, 1);
+		incrementOpacity(0, 1);
+		setTimeout(() => {
+			document.querySelector(".preloader").style.display = "none";
+			document.querySelector(".hyper").classList.remove("stop");
+		}, 200);
+	}, 150);
+}
+document.addEventListener("DOMContentLoaded", () => {
 	canvas = document.querySelector(".hyper");
 	ctx = canvas.getContext("2d");
 	setupStars();
 	updateStars();
-}
+});
 window.addEventListener('scroll', function(){
 	clearTimeout(scrollTimer);
 	clearTimeout(timer);
@@ -101,6 +112,18 @@ function updateStars(){
 async function decreaseValue(value, delay){
 	for(let i = value; i >= .8; i = i - .01){
 		params.extinction = i;
+		await new Promise(resolve => timer = setTimeout(resolve, delay));
+	}
+}
+async function decreaseOpacity(value, delay){
+	for(let i = value; i >= 0; i = i - .025){
+		document.querySelector(".preloader").style.opacity = i;
+		await new Promise(resolve => timer = setTimeout(resolve, delay));
+	}
+}
+async function incrementOpacity(value, delay){
+	for(let i = value; i <= 1; i = i + .025){
+		document.querySelector(".body").style.opacity = i;
 		await new Promise(resolve => timer = setTimeout(resolve, delay));
 	}
 }
