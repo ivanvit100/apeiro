@@ -1,6 +1,31 @@
 <template>
   <div id="app">
-	<canvas id="stars" class="hyper"></canvas>
+	<canvas id="stars" class="hyper stop"></canvas>
+	<div class="preloader">
+		<svg class="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
+					<stop offset="0%" stop-color="#ffffff" />
+					<stop offset="100%" stop-color="#ccc8c8" />
+				</linearGradient>
+				<linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
+					<stop offset="0%" stop-color="#ccc8c8" />
+					<stop offset="100%" stop-color="#ffffff" />
+				</linearGradient>
+			</defs>
+			<g fill="none" stroke-linecap="round" stroke-width="16">
+				<g class="ip__track" stroke="#ddd">
+					<path d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"/>
+					<path d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"/>
+				</g>
+				<g stroke-dasharray="180 656">
+					<path class="ip__worm1" stroke="url(#grad1)" stroke-dashoffset="0" d="M8,64s0-56,60-56,60,112,120,112,60-56,60-56"/>
+					<path class="ip__worm2" stroke="url(#grad2)" stroke-dashoffset="358" d="M248,64s0-56-60-56-60,112-120,112S8,64,8,64"/>
+				</g>
+			</g>
+		</svg>
+		<h1>ЗАГРУЗКА...</h1>
+	</div>
 	<div class="body">
 		<header>
 			<nav>
@@ -68,20 +93,20 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
 				</p>	
 			</div>
 		</div>
-		<div class="pluses">
+		<div class="pluses white">
 			<div class="aboutH">
-				<h1 style="font-weight: 800">НАШИ</h1>
-				<h1 style="font-weight: 300">ПРЕИМУЩЕСТВА</h1>
+				<h1 class="aboutInline" style="font-weight: 800">НАШИ</h1>
+				<h1 class="aboutInline" style="font-weight: 300">ПРЕИМУЩЕСТВА</h1>
 			</div>
 			<div class="space big"></div>
 			<div class="plus">
 				<img src="/static/images/01.png" alt="1" class="num">
 				<h1 class="plusName">НЕЙРОННЫЕ ТЕХНОЛОГИ</h1>
 				<div class="apo">
-					<svg viewBox="0 0 80 80">
+					<svg viewBox="0 0 60 60">
 						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
 					</svg>
-					<svg viewBox="0 0 80 80">
+					<svg viewBox="0 0 60 60">
 						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
 					</svg>
 				</div>
@@ -94,10 +119,10 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
 				<img src="/static/images/02.png" alt="2" class="num">
 				<h1 class="plusName">ИГРОВОЙ ДИЗАЙН</h1>
 				<div class="apo">
-					<svg viewBox="0 0 80 80">
+					<svg viewBox="0 0 60 60">
 						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
 					</svg>
-					<svg viewBox="0 0 80 80">
+					<svg viewBox="0 0 60 60">
 						<path d="M5 5 L30 40 L55 5 Z" fill="transparent"/>
 					</svg>
 				</div>
@@ -112,8 +137,29 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
 				</path>
 			</svg>
 			<img src="/static/images/hand.png" alt="Фон" class="side hand">
-			<span class="phrase">Быстро. Качественно. Эффектно.</span>
-			<span class="phrase big" style="color: #D7D7D7">Быстро. Качественно. Эффектно.</span>
+			<div class="phrases">
+				<span class="phrase">Быстро. Качественно. Эффектно.</span>
+				<span class="phrase big" style="color: #D7D7D7">Быстро. Качественно. Эффектно.</span>
+			</div>
+		</div>
+		<div class="pluses">
+			<div class="aboutH">
+				<h1 class="aboutInline" style="font-weight: 800">НАШИ</h1>
+				<h1 class="aboutInline" style="font-weight: 300">ПРОЕКТЫ</h1>
+			</div>
+			<div class="space big"></div>
+			<div class="plus">
+				<div class="projectImg"></div>
+				<h1 class="project">ПРОЕКТ 001</h1>
+				<span style="font-weight: 400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.</span>
+			</div>
+			<div class="space big"></div>
+			<div class="plus plus2">
+				<div class="projectImg"></div>
+				<h1 class="project">ПРОЕКТ 002</h1>
+				<span style="font-weight: 400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.</span>
+			</div>
+			<div class="space big"></div>
 		</div>
 	</div>
   </div>
