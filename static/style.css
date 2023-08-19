@@ -8,7 +8,7 @@
   background: rgba(223, 223, 223, .4);
 }
 html, body{
-  cursor: url(https://ivanvit.ru/img/select.png), auto;
+  /*cursor: url(https://ivanvit.ru/img/select.png), auto;*/
   font-family: 'Roboto', sans-serif;
 }
 .body{
@@ -375,6 +375,13 @@ header{
 .phrases{
   grid-column: 1/6;
   margin: 10px 0 70px 0;
+}
+.cent{
+  text-align: center;
+  padding-left: 0 !important;
+}
+.plusSmallMargin{
+  margin: 80px 0 60px 0;
 }
 
 

@@ -72,10 +72,10 @@ canvas{
 }
 .ip__track{
   stroke: hsl(var(--hue),90%,15%);
-  transition: stroke 2s;
+  transition: stroke 1.2s;
 }
 .ip__worm1, .ip__worm2{
-  animation: worm1 2s linear infinite;
+  animation: worm1 1.2s linear infinite;
 }
 .ip__worm2{
   animation-name: worm2;

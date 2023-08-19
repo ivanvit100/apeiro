@@ -121,9 +121,15 @@ async function decreaseOpacity(value, delay){
 		await new Promise(resolve => timer = setTimeout(resolve, delay));
 	}
 }
-async function incrementOpacity(value, delay){
-	for(let i = value; i <= 1; i = i + .025){
-		document.querySelector(".body").style.opacity = i;
-		await new Promise(resolve => timer = setTimeout(resolve, delay));
-	}
+function incrementOpacity(value, delay){
+	return new Promise(resolve => {
+		let i = value;
+		function animate(){
+			document.querySelector(".body").style.opacity = i;
+			i += .025;
+			if(i <= 1) setTimeout(animate, delay);
+			else resolve();
+		}
+		animate();
+	});
 }
