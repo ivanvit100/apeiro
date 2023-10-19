@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
+<html lang="ru" color-scheme="dark">
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,8 +33,14 @@
     <link rel="shortcut icon" href="./static/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"> 
     <link rel="stylesheet" href="./static/preloader.min.css">
-  </head>
-  <body>
+</head>
+<body>
+    <noscript style="color: white; z-index: 999;">
+        <center><h1><b>---Внимание!---</b></h2></center>
+        <p>Если Вы видите этот баннер, значит в Вашем браузере отключёна поддержка Java Script.</p>
+        <p>Перед дальнейшим взаимодействие с данным приложением рекомендуем Вам разрешить использование Java Script в настройках Вашего браузера и перезагрузить страницу.</p>
+        <p>Это приложение использует JS как для отображения страниц, так и для обеспечения функциональности. Мы не собираем данные без согласия пользователя. Как и для чего используются персональные данные Вы можете узнать в нашей Политике конфиденциальности.</p>
+    </noscript>
     <div id="app">
         <canvas id="stars" class="hyper stop"></canvas>
         <div class="preloader">
@@ -66,12 +72,12 @@
         <header>
             <nav>
                 <img src="./static/images/logo.webp" alt="Логотип сова" class="logo" height="64" width="63">
-                <button class="navButton big">Главная</button>
-                <button class="navButton">О нас</button>
-                <button class="navButton">Цены</button>
-                <button class="navButton">Контакты</button>
+                <a href="#intro" class="navButton big">О нас</a>
+                <a href="#projects" class="navButton">Проекты</a>
+                <a href="#price" class="navButton">Цены</a>
+                <a href="#contacts" class="navButton">Контакты</a>
                 <div class="container">
-                    <form action="" class="search">
+                    <form onsubmit="event.preventDefault();"class="search">
                         <input class="search__input" type="search" placeholder="Поиск" id="searchInput">
                         <div class="search__icon-container">
                             <label for="searchInput" class="search__label" aria-label="Search">
@@ -109,7 +115,7 @@
             <div class="space"></div>
             <div class="hrWrapper"><hr/></div>
         </header>
-        <div class="intro">
+        <div class="intro" id="intro">
             <div class="aboutH">
                 <h1 style="font-weight: 800">О НАШЕЙ</h1>
                 <h1 style="font-weight: 300">КОМПАНИИ</h1>
@@ -124,8 +130,11 @@
             </div>
             <div class="textWrapper">
                 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam accumsan cursus magna, tempus egestas est iaculis ut. Sed non fermentum lacus. Nulla ligula mauris, maximus sed metus id, rhoncus laoreet elit. Aliquam pretium consequat viverra. Suspendisse potenti. Maecenas at auctor nunc, eget interdum erat. Sed id commodo magna. Aenean a consequat urna. Duis vel elit justo. Vivamus in lorem facilisis, hendrerit libero sit amet, fermentum augue.</p><p>
-Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, vel convallis eros. Pellentesque vel diam et odio ornare convallis quis sit amet massa. In risus augue, tempor at lorem id, commodo auctor est. Pellentesque a mi sit amet urna congue aliquet at vitae lorem. Vestibulum bibendum vitae erat non sollicitudin. Vivamus tincidunt quam at odio lobortis consequat. Proin ut varius quam. Aliquam vel lobortis enim, ac iaculis magna. Morbi blandit commodo nisi, nec ultrices erat vulputate iaculis. 
+                Приветствуем вас в мире APEIRO — инновационной компании, вдохновленной образованием и технологиями. Мы — творческая команда экспертов в программировании, создании интерактивных учебных материалов и образовательных игр.
+                </p><p>
+                APEIRO символизирует бесконечный рост и развитие. Мы считаем образование ключом к будущему и стремимся сделать учебные заведения местом раскрытия потенциала через инновационные программы. 
+                </p><p>
+                Наш коллектив объединяет опытных разработчиков, дизайнеров и педагогов, создающих интеллектуально стимулирующие продукты. Мы разрабатываем персонализированные образовательные решения, подстраиваясь под стиль каждого ученика и делая учебный процесс более увлекательным.
                 </p>    
             </div>
         </div>
@@ -137,7 +146,7 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
             <div class="space big"></div>
             <div class="plus">
                 <img src="./static/images/01.webp" alt="1" class="num" loading="lazy" width="83" height="23">
-                <h1 class="plusName">НЕЙРОННЫЕ ТЕХНОЛОГИ</h1>
+                <h1 class="plusName">НЕЙРОННЫЕ<br>ТЕХНОЛОГИ</h1>
                 <div class="apo">
                     <svg viewBox="0 0 60 60">
                         <path d="M5 5 L30 40 L55 5 Z" fill="transparent"./>
@@ -147,13 +156,13 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
                     </svg>
                 </div>
                 <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.
+                    В процессе разработки наших программ, а так же дизайн-решений мы активно пользуемся всеми современными технологиями, в том числе генеративными нейросяетями.
                 </span>
             </div>
             <div class="space big"></div>
             <div class="plus plus2">
                 <img src="./static/images/02.webp" alt="2" class="num" loading="lazy" width="83" height="23">
-                <h1 class="plusName">ИГРОВОЙ ДИЗАЙН</h1>
+                <h1 class="plusName">ИГРОВОЙ<br>ДИЗАЙН</h1>
                 <div class="apo">
                     <svg viewBox="0 0 60 60">
                         <path d="M5 5 L30 40 L55 5 Z" fill="transparent"./>
@@ -163,13 +172,13 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
                     </svg>
                 </div>
                 <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.
+                    Компания предлагает современный взгляд на визуальную составляющую продукта, что делает его привлекательным и актуальным на рынке IT.
                 </span>
             </div>
             <div class="space big"></div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" class="side" id="animated-svg">
-                <path fill="none" d="M24.3,30C11.4,30,5,43.3,5,50s6.4,20,19.3,20c19.3,0,32.1-40,51.4-40 C88.6,30,95,43.3,95,50s-6.4,20-19.3,20C56.4,70,43.6,30,24.3,30z" stroke="#D7D7D7" stroke-width="8" stroke-dasharray="0 256.58892822265625 0">
-                    <animate attributeName="stroke-dashoffset" values="0;256.58892822265625" dur="1" fill="freeze"></animate>
+                <path fill="none" d="M24.3,30C8.6,30,5,43.3,5,50s4.4,20,19.3,20c19.3,0,32.1-40,51.4-40C90.6,30,95,43.3,95,50s-4.4,20-19.30,20C56.4,70,43.6,30,21.3,29.9" stroke="#D7D7D7" stroke-width="8" stroke-dasharray="0 256.58892822265625 2.3">
+                    <animate attributeName="stroke-dashoffset" values="0;255.68892822265625" dur="1" fill="freeze"></animate>
                 </path>
             </svg>
             <img src="./static/images/hand.webp" alt="Фон" class="side hand" loading="lazy" width="291" height="400">
@@ -178,7 +187,7 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
                 <span class="phrase big" style="color: #D7D7D7">Быстро. Качественно. Эффектно.</span>
             </div>
         </div>
-        <div class="pluses">
+        <div class="pluses" id="projects">
             <div class="aboutH cent">
                 <span>
                     <h1 class="aboutInline" style="font-weight: 800">НАШИ</h1>
@@ -189,17 +198,17 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
             <div class="plus plusSmallMargin">
                 <div class="projectImg"></div>
                 <h1 class="project">ПРОЕКТ 001</h1>
-                <span style="font-weight: 400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.</span>
+                <span style="font-weight: 400">Нашим первым проектом, получившим поддержку от “Фонда содействия инноваций “ является игровая платформа, направленная на привлечение абитуриентов в среду обучения средних и высших образовательных учреждений.</span>
             </div>
             <div class="space big"></div>
             <div class="plus plus2 plusSmallMargin">
                 <div class="projectImg"></div>
                 <h1 class="project">ПРОЕКТ 002</h1>
-                <span style="font-weight: 400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor consectetur elementum. Nullam finibus metus sodales dictum posuere. Vivamus lacus elit, iaculis sed ante vel, tincidunt ultricies mauris. Etiam dignissim quam eget venenatis sollicitudin.</span>
+                <span style="font-weight: 400">На стадии разработки находится следующий крупный проект компании. Новости о нём будут публиковаться в наших соцсетях. Всё ещё впереди...</span>
             </div>
             <div class="space big"></div>
         </div>
-        <div class="money white">
+        <div class="money white" id="price">
             <div class="aboutH">
                 <h1 class="aboutInline" style="font-weight: 800">СТОИМОСТЬ</h1>
                 <h1 class="aboutInline" style="font-weight: 300">УСЛУГ</h1>
@@ -207,18 +216,13 @@ Cras tincidunt ante augue, nec luctus orci commodo quis. Donec a sodales risus, 
             <img src="./static/images/coin.webp" alt="Фон" class="side coin" loading="lazy" width="291" height="400">
             <img src="./static/images/owl.webp" alt="Фон" class="side owl" loading="lazy" width="300" height="300">
         </div>
-        <div class="pluses contacts">
+        <div class="pluses contacts" id="contacts">
             <h1 class="aboutInline" style="font-weight: 800">КОНТАКТЫ</h1>
         </div>
     </div>
     </div>
-    <noscript>
-        <center><h1><b>---Внимание!---</b></h2></center>
-        <p>Если Вы видите этот баннер, значит в Вашем браузере отключёна поддержка Java Script.</p>
-        <p>Перед дальнейшим взаимодействие с данным приложением рекомендуем Вам разрешить использование Java Script в настройках Вашего браузера и перезагрузить страницу.</p>
-        <p>Это приложение использует JS как для отображения страниц, так и для обеспечения функциональности. Мы не собираем данные без согласия пользователя. Как и для чего используются персональные данные Вы можете узнать в нашей Политике конфиденциальности.</p>
-    </noscript>
     <script type="text/javascript" defer src="./static/hyper.min.js"></script>
     <link rel="stylesheet" href="./static/style.min.css">
-  </body>
+    <script type="text/javascript" async src="./static/main.min.js"></script>
+</body>
 </html>

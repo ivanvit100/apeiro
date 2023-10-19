@@ -12,7 +12,6 @@ const observer = new IntersectionObserver((entries) => {
 const animatedSvg = document.querySelector("#animated-svg");
 observer.observe(animatedSvg);
 
-
 let screen, stars, params = {speed: .2, number: 1100, extinction: .8};
 let scrollTimer = null;
 let lastScrollTime = 0;
@@ -59,18 +58,17 @@ window.addEventListener('scroll', function(){
 		decreaseValue(params.extinction, 5);
 	}, 100);
 });
-window.onresize = function (){
+window.onresize = function(){
     setupStars();
 };
 function Star(){
 	this.x = Math.random() * canvas.width;
 	this.y = Math.random() * canvas.height;
 	this.z = Math.random() * canvas.width;
-	this.move = function (){
+	this.move = function(){
 		this.z -= params.speed;
-		if(this.z <= 0){
+		if(this.z <= 0)
 			this.z = canvas.width;
-		}
 	};
 	this.show = function(){
 		let x, y, rad, opacity;
@@ -96,9 +94,8 @@ function setupStars(){
 	canvas.width = screen.w;
 	canvas.height = screen.h;
 	stars = [];
-	for(let i = 0; i < params.number; i++){
+	for(let i = 0; i < params.number; i++)
 		stars[i] = new Star();
-	}
 }
 function updateStars(){
 	ctx.fillStyle = "black";
@@ -107,6 +104,7 @@ function updateStars(){
 		s.show();
 		s.move();
 	});
+	if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 	window.requestAnimationFrame(updateStars);
 }
 async function decreaseValue(value, delay){
