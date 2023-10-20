@@ -404,6 +404,47 @@ header{
   top: 70px;
   transform: rotate(0deg) translate(142px);
 }
+.contacts > a, .contact > h1{
+  filter: drop-shadow(0 0 8px white);
+}
+.contacts{
+  height: 850px;
+}
+.contact > h1{
+  font-weight: 800;
+  font-size: 45px;
+  position: absolute;
+  bottom: 480px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  letter-spacing: 4px;
+}
+.girl{
+  margin-top: 80px;
+  max-width: 100%;
+  z-index: 2;
+  position: relative;
+  left: -40px;
+}
+.arrow{
+  filter: drop-shadow(0 0 8px white);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 360px;
+}
+.ico{
+  position: relative;
+  bottom: -50px;
+  margin: 0 5px;
+  text-decoration: none;
+}
+footer{
+  position: relative;
+  background-color: darkgray;
+  height: 200px;
+}
 
 @media(max-width: 1216px){
   .triangle{

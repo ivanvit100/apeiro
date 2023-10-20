@@ -6,18 +6,19 @@ async function search(textToFind, lastResFind){
         const newTextNode = document.createTextNode(match);
         element.replaceWith(newTextNode);  
     });
-    if(textToFind != "") 
+    if(textToFind != ""){
         document.body.innerHTML = document.body.innerHTML.replace(new RegExp(textToFind, 'gi'), 
             function(match) {
                 return `<span id='search'>${match}</span>`;
         });
-    lastResFind = textToFind;
-    canvas = document.querySelector(".hyper");
-    ctx = canvas.getContext("2d");
-    setupStars();
-    updateStars();
-    window.location = `#search`;
-    updateSearch();
+        lastResFind = textToFind;
+        canvas = document.querySelector(".hyper");
+        ctx = canvas.getContext("2d");
+        setupStars();
+        updateStars();
+        window.location = `#search`;
+        updateSearch();
+    }
 }
 function updateSearch(){
     document.querySelector('form').addEventListener('keydown', async function(e) {
