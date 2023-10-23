@@ -397,12 +397,13 @@ header{
 .money .coin{
   left: 0px;
   bottom: 20px;
-  transform: rotate(0deg) translate(-100px, 100px);
+  animation: coinRotate 32s infinite;
 }
 .owl{
   right: 0px;
   top: 70px;
-  transform: rotate(0deg) translate(142px);
+  animation: moveApeiro 8s infinite;
+  right: -150px;
 }
 .contacts > a, .contact > h1{
   filter: drop-shadow(0 0 8px white);
@@ -430,15 +431,22 @@ header{
 .arrow{
   filter: drop-shadow(0 0 8px white);
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: calc(50% - 40px);
   bottom: 360px;
+  animation: moveApeiro 8s infinite;
 }
 .ico{
+  filter: drop-shadow(0 0 8px black);
   position: relative;
   bottom: -50px;
-  margin: 0 5px;
+  left: -8px;
+  margin: 0 3px;
   text-decoration: none;
+  transition: all .1s ease-in-out;
+}
+.ico:hover, .ico:focus{
+  bottom: -45px;
+  filter: drop-shadow(0 0 5px black) drop-shadow(0 0 1px white);
 }
 footer{
   position: relative;
@@ -473,9 +481,6 @@ footer{
     justify-content: center;
     letter-spacing: 2px;
   }
-  .plus{
-    padding-left: 30px;
-  }
   .plus2{
     grid-row: 3;
     margin-top: 0;
@@ -507,9 +512,6 @@ footer{
   }
   .aboutH{
     font-size: 20px;
-  }
-  .plusSmallMargin{
-    margin-left: 10%;
   }
 }
 
@@ -599,6 +601,20 @@ footer{
     }
     100%{
       transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  @keyframes coinRotate{
+    0%{
+      transform: rotate(0deg) translate(-80px, 100px);
+    }
+    45%{
+      transform: rotate(-15deg) translate(-130px, 55px);
+    }
+    55%{
+      transform: rotate(-15deg) translate(-130px, 55px);
+    }
+    100%{
+      transform: rotate(0deg) translate(-80px, 100px);
     }
   }
 }

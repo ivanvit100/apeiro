@@ -1,18 +1,22 @@
 "use strict";
 
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if(entry.isIntersecting){
-      const animatedPath = document.querySelector("#animated-svg path animate");
-      animatedPath.beginElement();
-    }
-  });
+	entries.forEach((entry) => {
+		if (entry.isIntersecting) {
+			const animatedPath = document.querySelector("#animated-svg path animate");
+			animatedPath.beginElement();
+		}
+	});
 });
 
 const animatedSvg = document.querySelector("#animated-svg");
 observer.observe(animatedSvg);
 
-let screen, stars, params = {speed: .2, number: 1100, extinction: .8};
+let screen, stars, params = {
+	speed: .2,
+	number: 800,
+	extinction: .8
+};
 let scrollTimer = null;
 let lastScrollTime = 0;
 let lastScrollPosition = 0;
@@ -20,7 +24,7 @@ let isScrolling = false;
 let canvas = null;
 let ctx = null;
 let timer = null;
-window.onload = function(){
+window.onload = function() {
 	setTimeout(() => {
 		document.querySelector(".hyper").style.zIndex = 1;
 		decreaseOpacity(1, 1);
@@ -37,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	setupStars();
 	updateStars();
 });
-window.addEventListener('scroll', function(){
+window.addEventListener('scroll', function() {
 	clearTimeout(scrollTimer);
 	clearTimeout(timer);
 	const currentTime = new Date().getTime();
@@ -45,32 +49,33 @@ window.addEventListener('scroll', function(){
 	const timeDiff = currentTime - lastScrollTime;
 	const scrollDiff = Math.abs(currentScrollPosition - lastScrollPosition);
 	const scrollSpeed = scrollDiff / timeDiff;
-	if(scrollDiff > 50){
-		params.speed = Math.abs(Math.max(Math.min(16, scrollSpeed), .2) - params.speed) >= 0.2 ? Math.max(Math.min(16, scrollSpeed), .2) : params.speed; 
+	if (scrollDiff > 50) {
+		params.speed = Math.abs(Math.max(Math.min(16, scrollSpeed), .2) - params.speed) >= 0.2 ? Math.max(Math.min(16, scrollSpeed), .2) : params.speed;
 		params.extinction = Math.abs(Math.min(Math.max(.8, scrollSpeed), 3) - params.extinction) >= 0.2 ? Math.min(Math.max(.8, scrollSpeed), 3) : params.extinction;
 	}
 	isScrolling = !isScrolling;
 	lastScrollTime = currentTime;
 	lastScrollPosition = currentScrollPosition;
-	scrollTimer = setTimeout(function(){
+	scrollTimer = setTimeout(function() {
 		isScrolling = false;
 		params.speed = .2;
 		decreaseValue(params.extinction, 5);
 	}, 100);
 });
-window.onresize = function(){
-    setupStars();
+window.onresize = function() {
+	setupStars();
 };
-function Star(){
+
+function Star() {
 	this.x = Math.random() * canvas.width;
 	this.y = Math.random() * canvas.height;
 	this.z = Math.random() * canvas.width;
-	this.move = function(){
+	this.move = function() {
 		this.z -= params.speed;
-		if(this.z <= 0)
+		if (this.z <= 0)
 			this.z = canvas.width;
 	};
-	this.show = function(){
+	this.show = function() {
 		let x, y, rad, opacity;
 		x = (this.x - screen.c[0]) * (canvas.width / this.z);
 		x = x + screen.c[0];
@@ -84,7 +89,8 @@ function Star(){
 		ctx.fill();
 	}
 }
-function setupStars(){
+
+function setupStars() {
 	screen = {
 		w: window.innerWidth,
 		h: window.innerHeight,
@@ -94,38 +100,41 @@ function setupStars(){
 	canvas.width = screen.w;
 	canvas.height = screen.h;
 	stars = [];
-	for(let i = 0; i < params.number; i++)
+	for (let i = 0; i < params.number; i++)
 		stars[i] = new Star();
 }
-function updateStars(){
+
+function updateStars() {
 	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
-	stars.forEach(function(s){
+	stars.forEach(function(s) {
 		s.show();
 		s.move();
 	});
-	if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 	window.requestAnimationFrame(updateStars);
 }
-async function decreaseValue(value, delay){
-	for(let i = value; i >= .8; i = i - .01){
+async function decreaseValue(value, delay) {
+	for (let i = value; i >= .8; i = i - .01) {
 		params.extinction = i;
 		await new Promise(resolve => timer = setTimeout(resolve, delay));
 	}
 }
-async function decreaseOpacity(value, delay){
-	for(let i = value; i >= 0; i = i - .025){
+async function decreaseOpacity(value, delay) {
+	for (let i = value; i >= 0; i = i - .025) {
 		document.querySelector(".preloader").style.opacity = i;
 		await new Promise(resolve => timer = setTimeout(resolve, delay));
 	}
 }
-function incrementOpacity(value, delay){
+
+function incrementOpacity(value, delay) {
 	return new Promise(resolve => {
 		let i = value;
-		function animate(){
+
+		function animate() {
 			document.querySelector(".body").style.opacity = i;
 			i += .025;
-			if(i <= 1) setTimeout(animate, delay);
+			if (i <= 1) setTimeout(animate, delay);
 			else resolve();
 		}
 		animate();
