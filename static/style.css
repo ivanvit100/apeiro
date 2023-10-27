@@ -385,10 +385,13 @@ header{
 }
 .money{
   position: relative;
-  height: 600px;
+}
+.money > .aboutH{
+  padding: 0;
+  text-align: center;
 }
 .money img{
-  position: absolute !important;
+  position: absolute;
 }
 .money .coin{
   left: 0px;
@@ -404,31 +407,39 @@ header{
 .contacts > a, .contact > h1{
   filter: drop-shadow(0 0 8px white);
 }
+.contacts > a{
+  position: relative;
+  top: -40px;
+}
 .contacts{
-  height: 850px;
+  height: 800px;
 }
 .contact > h1{
   font-weight: 800;
   font-size: 45px;
   position: absolute;
-  bottom: 480px;
+  bottom: 560px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   letter-spacing: 4px;
 }
+.sponsor{
+  max-height: 120px;
+  max-width: 20vw;
+}
 .girl{
-  margin-top: 80px;
+  margin-top: 40px;
   max-width: 100%;
   z-index: 2;
   position: relative;
-  left: -40px;
+  left: -130px;
 }
 .arrow{
   filter: drop-shadow(0 0 8px white);
   position: absolute;
   left: calc(50% - 40px);
-  bottom: 360px;
+  bottom: 440px;
   animation: moveApeiro 8s infinite;
 }
 .ico{
@@ -446,8 +457,79 @@ header{
 }
 footer{
   position: relative;
-  background-color: darkgray;
+  background-color: #2d2c2c;
+  padding: 30px 0;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
+footer > span{
+  grid-column: 2/5;
+}
+.switch{
+  height: 50px;
+  width: 50px;
+  position: relative;
+  top: 130px;
+  z-index: 3;
+}
+.switch:hover{
+  top: 135px;
+}
+#price > h3{
+  scale: 1.3;
+  width: 40%;
+  position: relative;
+  left: 30%;
+  font-weight: 400;
+}
+.moon{
+  position: absolute;
+  right: -20%;
+  width: 80vw;
+  bottom: min(40vw, 240px);
+  z-index: -1;
+}
+#more{
+  width: 220px;
+  height: 47px;
+  font-weight: 800;
+  font-size: 24px;
+  margin: 80px auto 60px auto;
+  background-color: black;
+  color: white;
+  border: 0;
+  border-radius: 18px;
+  filter: drop-shadow(0 0 8px #2f2f2f);
+  position: relative;
+  z-index: 3;
+}
+#more:hover{
+  top: 5px;
+}
+#item{
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 50px 300px 80px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+#item > svg, .itemImg{
+  filter: drop-shadow(0 0 8px #2f2f2f);
+}
+#item > h1{
+  grid-column: 1/4;
+}
+#item > p{
+  position: relative;
+  grid-column: 2;
+  width: 80%;
+  left: 10%;
+}
+.itemImg{
   height: 200px;
+  position: relative !important;
+  top: 50px;
 }
 
 @media(max-width: 1216px){
@@ -641,16 +723,16 @@ footer{
   }
   @keyframes coinRotate{
     0%{
-      transform: rotate(0deg) translate(-80px, 100px);
+      transform: rotate(0deg) translate(-80px, 220px);
     }
     45%{
-      transform: rotate(-15deg) translate(-130px, 55px);
+      transform: rotate(-15deg) translate(-130px, 175px);
     }
     55%{
-      transform: rotate(-15deg) translate(-130px, 55px);
+      transform: rotate(-15deg) translate(-130px, 175px);
     }
     100%{
-      transform: rotate(0deg) translate(-80px, 100px);
+      transform: rotate(0deg) translate(-80px, 220px);
     }
   }
 }
