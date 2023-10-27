@@ -359,11 +359,10 @@ header{
   animation: moveApeiro 8s infinite;
 }
 .projectImg{
-  width: 120%;
+  width: 100%;
   height: 300px;
   border: 8px solid white;
   position: relative;
-  right: 10%;
   margin-bottom: 30px;
   filter: drop-shadow(0 0 8px #E5E7E7);
 }
@@ -383,9 +382,6 @@ header{
 .cent{
   text-align: center;
   padding-left: 0 !important;
-}
-.plusSmallMargin{
-  margin: 80px 0 60px 0;
 }
 .money{
   position: relative;
@@ -463,11 +459,25 @@ footer{
   }
 }
 @media(max-width: 767px){
+  .pluses > .aboutH, .plusName, .phrase, .side{
+    scale: 0.8;
+  }
+  .hand{
+    left: -50px;
+  }
+  .plusName{
+    margin-left: -11%;
+  }
   .headImageWrapper, .container, .big{
     display: none;
   }
   .headWrapper{
     grid-template-columns: 100%;
+  }
+  .plusSmallMargin{
+    padding: 0;
+    width: 80vw;  
+    margin: 40px 0 !important;
   }
   nav{
     grid-template-columns: 25% 25% 25% 25%;
@@ -480,6 +490,12 @@ footer{
     grid-template-columns: 80%;
     justify-content: center;
     letter-spacing: 2px;
+  }
+  .pluses.white{
+    grid-template-columns: 110%;
+  }
+  .plus{
+    margin: 100px 15vw;
   }
   .plus2{
     grid-row: 3;
@@ -512,6 +528,26 @@ footer{
   }
   .aboutH{
     font-size: 20px;
+  }
+}
+@media(max-width: 430px){
+  .intro .apo{
+    display: none;
+  }
+  .textWrapper{
+    grid-column: 1/3;
+    margin: 0 auto;
+  }
+}
+@media(max-width: 340px){
+  .plusSmallMargin{
+    margin: 10vw;
+  }
+  .slogan::before{
+    left: 10px;
+  }
+  .slogan::after{
+    right: 10px;
   }
 }
 

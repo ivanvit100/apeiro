@@ -14,7 +14,7 @@ observer.observe(animatedSvg);
 
 let screen, stars, params = {
 	speed: .2,
-	number: 800,
+	number: 900,
 	extinction: .8
 };
 let scrollTimer = null;
