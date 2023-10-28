@@ -307,7 +307,7 @@ header{
 }
 .pluses{
   display: grid;
-  grid-template-columns: 15% 25% 10% 25% 15%;
+  grid-template-columns: 12% 30% 6% 30% 12%;
   margin: 30px 0;
   position: relative;
   padding: 30px 0;
@@ -345,12 +345,14 @@ header{
   font-weight: 850;
   color: #2d2d2d;
   display: block;
+  letter-spacing: 3px;
 }
 .side{
-  transform: rotate(201deg);
+  transform: rotate(155deg);
   position: absolute;
   top: 15%;
   right: -135px;
+  z-index: 1 !important;
 }
 .hand{
   height: 400px;
@@ -386,6 +388,9 @@ header{
 .money{
   position: relative;
 }
+.money *{
+  z-index: 2;
+}
 .money > .aboutH{
   padding: 0;
   text-align: center;
@@ -404,55 +409,56 @@ header{
   animation: moveApeiro 8s infinite;
   right: -150px;
 }
-.contacts > a, .contact > h1{
-  filter: drop-shadow(0 0 8px white);
+.contacts{
+  padding-bottom: 40px;
 }
 .contacts > a{
   position: relative;
-  top: -40px;
-}
-.contacts{
-  height: 800px;
+  bottom: 30px;
+  text-decoration: none;
+  left: calc(-280px/6);
 }
 .contact > h1{
   font-weight: 800;
-  font-size: 45px;
-  position: absolute;
-  bottom: 560px;
-  left: 50%;
-  transform: translateX(-50%);
+  font-size: 55px;
+  position: relative;
+  bottom: 210px;
   z-index: 1;
   letter-spacing: 4px;
 }
 .sponsor{
-  max-height: 120px;
-  max-width: 20vw;
+  max-height: 80px;
+  width: auto;
+  position: relative;
+  top: 20px;
 }
 .girl{
   margin-top: 40px;
+  width: 585px;
   max-width: 100%;
+  height: auto;
   z-index: 2;
   position: relative;
-  left: -130px;
+  left: -150px;
 }
 .arrow{
-  filter: drop-shadow(0 0 8px white);
-  position: absolute;
-  left: calc(50% - 40px);
-  bottom: 440px;
+  position: relative;
+  left: calc(274px/2 + 40px);
   animation: moveApeiro 8s infinite;
+  width: 80px;
+  bottom: 150px;
 }
 .ico{
   filter: drop-shadow(0 0 8px black);
   position: relative;
-  bottom: -50px;
   left: -8px;
   margin: 0 3px;
   text-decoration: none;
+  bottom: 0;
   transition: all .1s ease-in-out;
 }
 .ico:hover, .ico:focus{
-  bottom: -45px;
+  bottom: 5px;
   filter: drop-shadow(0 0 5px black) drop-shadow(0 0 1px white);
 }
 footer{
@@ -460,7 +466,43 @@ footer{
   background-color: #2d2c2c;
   padding: 30px 0;
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  height: 184px;
+  grid-template-columns: 10% 40% 40% 10%;
+  filter: drop-shadow(0 0 45px #06060687);
+}
+.about1{
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+.about2{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-evenly;
+}
+.info{
+  position: relative;
+  display: grid;
+  grid-template-columns: 100%;
+  text-align: initial;
+  padding-left: 15px;
+}
+.info::after{
+  content: "";
+  height: 100px;
+  width: 1px;
+  position: absolute;
+  right: -10px;
+  border: 3px solid white;
+  border-radius: 90px;
+  top: 10px;
+}
+.info > span:nth-child(1){
+  position: relative;
+  margin-bottom: 5px;
+  margin-top: auto;
+}
+.footerLogo{
+  height: 120px;
 }
 footer > span{
   grid-column: 2/5;
@@ -471,6 +513,7 @@ footer > span{
   position: relative;
   top: 130px;
   z-index: 3;
+  transition: all .2s ease-in-out;
 }
 .switch:hover{
   top: 135px;
@@ -486,8 +529,9 @@ footer > span{
   position: absolute;
   right: -20%;
   width: 80vw;
-  bottom: min(40vw, 240px);
+  bottom: 180px;
   z-index: -1;
+  filter: drop-shadow(0 0 45px #ffffff87);
 }
 #more{
   width: 220px;
@@ -498,13 +542,16 @@ footer > span{
   background-color: black;
   color: white;
   border: 0;
+  top: 0;
   border-radius: 18px;
-  filter: drop-shadow(0 0 8px #2f2f2f);
+  filter: drop-shadow(0 5px 5px #2f2f2fa3);
   position: relative;
   z-index: 3;
+  transition: all .2s ease-in-out;
 }
 #more:hover{
   top: 5px;
+  filter: drop-shadow(0 1px 3px #2f2f2fa3)
 }
 #item{
   display: grid;
@@ -540,7 +587,15 @@ footer > span{
     padding-left: 15%;
   }
 }
+@media(max-width: 880px){
+  footer{
+    grid-template-columns: 0 repeat(2, 50%) 0;
+  }
+}
 @media(max-width: 767px){
+  footer{
+    grid-template-columns: repeat(2, 50%);
+  }
   .pluses > .aboutH, .plusName, .phrase, .side{
     scale: 0.8;
   }
@@ -594,7 +649,39 @@ footer > span{
     margin: -40px 0 40px 0;
   }
 }
+@media(max-width: 700px){
+  footer{
+    grid-template-columns: 90%;
+    height: 268px;
+    padding: 20px 10%;
+  }
+  .info::after{
+    transform: rotate(90deg);
+    left: calc(20vw + 25px);
+    top: 70px;
+  }
+  .moon{
+    bottom: 268px;
+  }
+}
+@media(max-width: 650px){
+  .girl{
+    left: -8vw;
+  }
+  .arrow{
+    width: calc(100vw/4);
+    bottom: calc(100vw/4);
+  }
+  .contact > h1{
+    font-size: calc(100vw/10);
+    bottom: calc(100vw/3);
+  }
+}
 @media(max-width: 500px){
+  .contact > h1{
+    font-size: calc(100vw/8);
+    bottom: calc(100vw/2.5 - 10px);
+  }
   .navButton{
     display: none;
   }
