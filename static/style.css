@@ -174,7 +174,7 @@ header{
   stroke-width: 3;
 }
 .container, form, .search__input{
-  max-width: 40vw;
+  max-width: 18vw;
 }
 .search{
   --easing: cubic-bezier(0.4, 0, 0.2, 1);
@@ -672,7 +672,8 @@ footer > span{
   }
   .hand{
     top: 50%;
-    height: 300px;
+    height: 350px;
+    width: auto;
   }
   .pluses > .plusesH{
     padding-left: 30px !important;

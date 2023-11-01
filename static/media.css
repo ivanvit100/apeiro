@@ -10,10 +10,12 @@
     padding: 40px 5%;
   }
   .info::after{
-    transform: rotate(90deg);
-    left: 17vw;
-    top: -160%;
-    height: 80vw;
+    height: 0;
+    width: 80vw;
+    position: absolute;
+    right: 5vw;
+    top: 100px;
+    border: 2px solid white;
   }
   .moon{
     bottom: 268px;
@@ -52,8 +54,8 @@
   }
 }
 @media(max-width: 500px){
-  .info::after{
-    top: -135%;
+  .container,.search__input,form{
+    max-width: 40vw
   }
   .pluses > .plusesH{
     text-align: left !important;
@@ -79,15 +81,8 @@
     font-size: 20px;
     top: 20px;
   }
-}
-@media(max-width: 560px){
-  .info::after{
-    top: -105%;
-  }
-}
-@media(max-width: 485px){
-  .info::after{
-    top: -80%;
+  #price > h3{
+    margin: 30px 0 0 0;
   }
 }
 @media(max-width: 430px){
@@ -116,8 +111,10 @@
     grid-column: 1/3;
     margin: 0 auto;
   }
-  .info::after{
-    top: -54%;
+}
+@media(max-width: 360px){
+  #more{
+    margin: 60px auto;
   }
 }
 @media(max-width: 340px){
@@ -146,8 +143,10 @@
   .slogan::after{
     right: 10px;
   }
-  .info::after{
-    top: -30%;
+}
+@media(max-width: 280px){
+  #more{
+    margin-top: 100px;
   }
 }
 
