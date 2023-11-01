@@ -29,5 +29,13 @@ function updateSearch(){
         await search(document.querySelector('.search__input').value.trim().toLowerCase(), lastResFind);
     });
 }
+function changeSpanContent(){
+    let spanElement = document.querySelector("#ap");
+    spanElement.textContent = window.innerWidth < 340 ? 
+        `ООО "АПЕЙРО"` :
+        `Общество с ограниченной ответственностью "АПЕЙРО"`;
+}
+window.addEventListener('resize', changeSpanContent);
 let lastResFind;
 updateSearch();
+changeSpanContent();
