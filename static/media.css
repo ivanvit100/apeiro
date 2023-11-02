@@ -101,7 +101,7 @@
     bottom: -20px;
   }
   #su{
-    grid-gap: 2px;
+    grid-gap: initial;
   }
   .ico:hover, .ico:focus{
     bottom: -15px;
