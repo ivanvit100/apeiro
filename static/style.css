@@ -750,10 +750,11 @@ footer > span{
   display: grid;
   -ms-grid-columns: 50px 12px 50px 12px 50px 12px 50px 12px 50px;
   grid-template-columns: repeat(5, 50px);
+  width: max(40%, 240px);
   grid-gap: 12px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-around;
+      -ms-flex-pack: space-around;
+          justify-content: space-around;
 }
 .mu{
   display: -ms-grid;
