@@ -35,6 +35,30 @@ function changeSpanContent(){
         `ООО "АПЕЙРО"` :
         `Общество с ограниченной ответственностью "АПЕЙРО"`;
 }
+document.addEventListener('DOMContentLoaded', () => {
+    if(typeof navigator !== 'undefined' && 'maxTouchPoints' in navigator && navigator.maxTouchPoints > 0)
+        document.querySelector("*").style.cursor = "auto";
+    else if('ontouchstart' in window || (typeof DocumentTouch !== 'undefined' && document instanceof DocumentTouch))
+        document.querySelector("*").style.cursor = "auto";
+    else{
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = (e.clientX - 15) + 'px';
+            cursor.style.top = (e.clientY - 5) + 'px';
+        });
+        let linkElements = document.querySelectorAll(".link");
+        linkElements.forEach((element) => {
+            element.addEventListener('mouseenter', () => {
+                cursor.classList.add('scale-up');
+            });
+            element.addEventListener('mouseleave', () => {
+                cursor.classList.remove('scale-up');
+            });
+        });
+    }
+});
 window.addEventListener('resize', changeSpanContent);
 let lastResFind;
 updateSearch();
