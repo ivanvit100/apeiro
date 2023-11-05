@@ -36,10 +36,8 @@ function changeSpanContent(){
         `Общество с ограниченной ответственностью "АПЕЙРО"`;
 }
 document.addEventListener('DOMContentLoaded', () => {
-    if(typeof navigator !== 'undefined' && 'maxTouchPoints' in navigator && navigator.maxTouchPoints > 0)
-        document.querySelector("*").style.cursor = "auto";
-    else if('ontouchstart' in window || (typeof DocumentTouch !== 'undefined' && document instanceof DocumentTouch))
-        document.querySelector("*").style.cursor = "auto";
+    if('ontouchstart' in window || (typeof DocumentTouch !== 'undefined' && document instanceof DocumentTouch))
+        document.querySelector("*").style.cursor = "auto !important";
     else{
         const cursor = document.createElement('div');
         cursor.classList.add('custom-cursor');
