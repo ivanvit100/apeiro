@@ -35,26 +35,45 @@ function changeSpanContent(){
         `ООО "АПЕЙРО"` :
         `Общество с ограниченной ответственностью "АПЕЙРО"`;
 }
+function createCursor(){
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = (e.clientX - 15) + 'px';
+        cursor.style.top = (e.clientY - 5) + 'px';
+    });
+    let linkElements = document.querySelectorAll(".link");
+    linkElements.forEach((element) => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('scale-up');
+        });
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('scale-up');
+        });
+    });
+    let textElements = document.querySelectorAll(".textCur");
+    textElements.forEach((element) => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('text-cursor');
+        });
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('text-cursor');
+        });
+    });
+}
 document.addEventListener('DOMContentLoaded', () => {
     if('ontouchstart' in window || (typeof DocumentTouch !== 'undefined' && document instanceof DocumentTouch))
         document.querySelector("*").style.cursor = "auto !important";
     else{
-        const cursor = document.createElement('div');
-        cursor.classList.add('custom-cursor');
-        document.body.appendChild(cursor);
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = (e.clientX - 15) + 'px';
-            cursor.style.top = (e.clientY - 5) + 'px';
-        });
-        let linkElements = document.querySelectorAll(".link");
-        linkElements.forEach((element) => {
-            element.addEventListener('mouseenter', () => {
-                cursor.classList.add('scale-up');
-            });
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('scale-up');
-            });
-        });
+        const handleLeave = () => {
+            document.querySelector(".custom-cursor").remove();
+        };
+        const handleEnter = () => {
+            createCursor();
+        };
+        document.body.addEventListener('mouseleave', handleLeave);
+        document.body.addEventListener('mouseenter', handleEnter);
     }
 });
 window.addEventListener('resize', changeSpanContent);

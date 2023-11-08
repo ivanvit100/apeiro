@@ -14,8 +14,8 @@
 }
 .custom-cursor{
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -100px;
+  left: -100px;
   width: 0px;
   height: 0px;
   border-top: 20px solid transparent;
@@ -30,6 +30,28 @@
   transition: transform 0.3s ease-in-out;
   filter: invert(100%);
   scale: .75;
+  transition: all .3 ease-in-out;
+}
+.text-cursor{
+  width: 6px;
+  height: 25px;
+  background-color: black;
+  border: none;
+  transform: scale(.75) translate(10px, -10px);
+}
+.text-cursor::before, .text-cursor::after{
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 15px;
+  height: 6px;
+  left: -5px;
+}
+.text-cursor::before{
+  top: -5px;
+}
+.text-cursor::after{
+  bottom: -5px;
 }
 .scale-up{
   transform: rotate(85deg) scale(1.3);
