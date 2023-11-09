@@ -29,7 +29,7 @@
   z-index: 9999;
   transition: transform 0.3s ease-in-out;
   filter: invert(100%);
-  scale: .75;
+  scale: .6;
   transition: all .3 ease-in-out;
 }
 .text-cursor{
@@ -37,13 +37,13 @@
   height: 25px;
   background-color: black;
   border: none;
-  transform: scale(.75) translate(10px, -10px);
+  transform: scale(.85) translate(10px, -15px);
 }
 .text-cursor::before, .text-cursor::after{
   content: '';
   position: absolute;
   background-color: black;
-  width: 15px;
+  width: 18px;
   height: 6px;
   left: -5px;
 }
@@ -65,6 +65,7 @@ html, body{
 .projectImgImg{
   width: 100%;
   height: auto;
+  margin-bottom: -5px;
   filter: grayscale(80%);
   -webkit-transition: -webkit-filter .5s;
   transition: -webkit-filter .5s;
@@ -797,6 +798,7 @@ footer > span{
 }
 .itemImg{
   height: 200px;
+  width: auto;
   position: relative !important;
   top: 50px;
 }
