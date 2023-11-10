@@ -45,16 +45,6 @@ function createCursor(){
         const cursor = document.createElement('div');
         cursor.classList.add('custom-cursor');
         document.body.appendChild(cursor);
-        let linkElements = document.querySelectorAll(".link");
-        linkElements.forEach((element) => {
-            element.addEventListener('mouseenter', () => {
-                document.querySelectorAll(".custom-cursor").length === 0 && !isMobile && createCursor();
-                cursor.classList.add('scale-up');
-            });
-            element.addEventListener('mouseleave', () => {
-                cursor.classList.remove('scale-up');
-            });
-        });
         let textElements = document.querySelectorAll(".textCur");
         textElements.forEach((element) => {
             element.addEventListener('mouseenter', () => {
@@ -76,8 +66,8 @@ const handleEnter = () => {
 if(!isMobile){
     document.body.addEventListener('mouseleave', handleLeave);
     document.body.addEventListener('mouseenter', handleEnter);
-    window.addEventListener('resize', changeSpanContent);
 }
+window.addEventListener('resize', changeSpanContent);
 
 let lastResFind;
 updateSearch();

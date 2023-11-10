@@ -777,8 +777,8 @@ footer > span{
   -ms-grid-column: 3;
 }
 #item > svg, .itemImg{
-  -webkit-filter: drop-shadow(0 0 8px #2f2f2f);
-          filter: drop-shadow(0 0 8px #2f2f2f);
+  -webkit-filter: drop-shadow(0 0 8px #2f2f2f94);
+          filter: drop-shadow(0 0 8px #2f2f2f94);
 }
 #item > h1{
   -ms-grid-column: 1;
