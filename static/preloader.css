@@ -48,19 +48,6 @@ canvas{
   left: 50%;
   text-align: center;
 }
-.preloader::before, .preloader::after{
-  content: " ";
-  position: absolute;
-  border-right: 5px solid white;
-  margin: 20px;
-  height: 150px;
-}
-.preloader::before{
-  animation: moveSide1 8s infinite;
-}
-.preloader::after{
-  animation: moveSide2 8s infinite;
-}
 .preloader > h1{
   color: white;
   font-family: sans-serif;
