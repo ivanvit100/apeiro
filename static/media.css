@@ -160,6 +160,9 @@
 }
 
 @media(prefers-reduced-motion: no-preference){
+  *{
+    cursor: none;
+  }
   @-webkit-keyframes unhide{
     from{
       height: 0;

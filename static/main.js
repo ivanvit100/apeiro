@@ -1,5 +1,15 @@
 const userAgent = navigator.userAgent.toLowerCase();
 const isMobile = /mobile|iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(userAgent);
+const pref = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+let tar = 0;
+var json = {
+    title: ['Базовый', 'Продвинутый', 'Базовый'],
+    imgSrc: ['tar1', 'tar2', 'tar1'],
+    description: ['Готовая платформа на основе ранее созданных без добавления дополнительных функций на программном уровне по желанию заказчика.', 
+    'Платформа на основе ранее созданных с добавлением или изменением базовых функций на программном уровне по желанию заказчика.',
+    'Готовая платформа на основе ранее созданных без добавления дополнительных функций на программном уровне по желанию заказчика.']
+};
 
 async function search(textToFind, lastResFind){
     event.preventDefault();
@@ -11,7 +21,7 @@ async function search(textToFind, lastResFind){
     });
     if(textToFind != ""){
         document.body.innerHTML = document.body.innerHTML.replace(new RegExp(textToFind, 'gi'), 
-            function(match) {
+            (match) => {
                 return `<span id='search'>${match}</span>`;
         });
         lastResFind = textToFind;
@@ -28,9 +38,6 @@ function updateSearch(){
         if(e.keyCode === 13) 
             await search(document.querySelector('.search__input').value.trim().toLowerCase(), lastResFind);
     });
-    document.querySelector('form').addEventListener('focusout', async function(e) {
-        await search(document.querySelector('.search__input').value.trim().toLowerCase(), lastResFind);
-    });
 }
 
 function changeSpanContent(){
@@ -41,7 +48,7 @@ function changeSpanContent(){
 }
 
 function createCursor(){
-    if(!isMobile){
+    if(!isMobile && !pref){
         const cursor = document.createElement('div');
         cursor.classList.add('custom-cursor');
         document.body.appendChild(cursor);
@@ -60,7 +67,7 @@ const handleLeave = () => {
     document.querySelector(".custom-cursor").remove();
 };
 const handleEnter = () => {
-    document.querySelectorAll(".custom-cursor").length === 0 && !isMobile && createCursor();
+    document.querySelectorAll(".custom-cursor").length === 0 && createCursor();
 };
 
 if(!isMobile){
@@ -74,7 +81,7 @@ updateSearch();
 changeSpanContent();
 document.addEventListener('mousemove', (e) => {
     const cursor = document.querySelectorAll(".custom-cursor");
-    cursor.length === 0 && !isMobile && createCursor();
+    cursor.length === 0 && !pref && !isMobile && createCursor();
     try{
         if(!isMobile){
             cursor[0].style.left = (e.clientX - 15) + 'px';
@@ -84,15 +91,6 @@ document.addEventListener('mousemove', (e) => {
         console.warn("[cursor] Not found");
     }
 });
-
-let tar = 0;
-var json = {
-    title: ['Базовый', 'Продвинутый', 'Базовый'],
-    imgSrc: ['tar1', 'tar2', 'tar1'],
-    description: ['Готовая платформа на основе ранее созданных без добавления дополнительных функций на программном уровне по желанию заказчика.', 
-    'Платформа на основе ранее созданных с добавлением или изменением базовых функций на программном уровне по желанию заказчика.',
-    'Готовая платформа на основе ранее созданных без добавления дополнительных функций на программном уровне по желанию заказчика.']
-};
 
 function listener(){
     document.querySelector('.next').addEventListener('click', () => {
@@ -122,5 +120,48 @@ function tarUpdate(){
     listener();
 }
 
-!isMobile && createCursor();
+!pref && !isMobile && createCursor();
 listener();
+
+function preloadImages(images){
+    return new Promise((resolve, reject) => {
+        let loadedImages = 0;
+        for (let i = 0; i < images.length; i++) {
+            let img = new Image();
+            img.onload = () => {
+                loadedImages++;
+                if (loadedImages === images.length) {
+                    resolve();
+                    console.log("[preloadImages] Ready")
+                }
+            };
+            img.onerror = (errorMessage) => {
+                console.warn(`[preloadImages] Failed to load image: ${images[i]}`);
+                reject(errorMessage);
+            };
+            img.src = images[i];
+        }
+    });
+}
+
+async function testWebP(){
+    const elem = document.body;
+    const webP = new Image();
+    let flag = false;
+    await new Promise((resolve, reject) => {
+        webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+        webP.onload = function() {
+            flag = true;
+            resolve();
+        };
+        webP.onerror = reject;
+    });
+    const imagesToPreload = [
+        `/static/images/tar1.${flag ? "webp" : "png"}`,
+        `/static/images/tar2.${flag ? "webp" : "png"}`
+    ];
+    console.log(`[webpStatus]: ${flag}`);
+    await preloadImages(imagesToPreload);
+}
+
+document.addEventListener("DOMContentLoaded", testWebP);

@@ -104,6 +104,8 @@ function setupStars() {
 		stars[i] = new Star();
 }
 
+const ref = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 function updateStars() {
 	ctx.fillStyle = "black";
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -111,7 +113,7 @@ function updateStars() {
 		s.show();
 		s.move();
 	});
-	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+	if(ref) return;
 	window.requestAnimationFrame(updateStars);
 }
 async function decreaseValue(value, delay) {

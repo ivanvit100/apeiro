@@ -1,5 +1,4 @@
 *, *:before, *:after{
-  cursor: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -611,6 +610,7 @@ header{
   -webkit-transition: all .1s ease-in-out;
   -o-transition: all .1s ease-in-out;
   transition: all .1s ease-in-out;
+  left: 2px;
 }
 .ico:hover, .ico:focus{
   bottom: 5px;
@@ -777,8 +777,8 @@ footer > span{
   -ms-grid-column: 3;
 }
 #item > svg, .itemImg{
-  -webkit-filter: drop-shadow(0 0 8px #2f2f2f94);
-          filter: drop-shadow(0 0 8px #2f2f2f94);
+  -webkit-filter: drop-shadow(0 2px 2px #2f2f2fe0);
+          filter: drop-shadow(0 2px 2px #2f2f2fe0);
 }
 #item > h1{
   -ms-grid-column: 1;
@@ -805,13 +805,13 @@ footer > span{
 #su{
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50px 12px 50px 12px 50px 12px 50px 12px 50px;
-  grid-template-columns: repeat(5, 50px);
-  width: max(40%, 240px);
+  -ms-grid-columns: repeat(5, 60px);
+  grid-template-columns: repeat(5, 60px);
+  width: max(40%, 340px);
   grid-gap: 12px;
-  -webkit-box-pack: space-around;
-      -ms-flex-pack: space-around;
-          justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .mu{
   display: -ms-grid;
