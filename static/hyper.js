@@ -62,9 +62,7 @@ window.addEventListener('scroll', function() {
 		decreaseValue(params.extinction, 5);
 	}, 100);
 });
-window.onresize = function() {
-	setupStars();
-};
+window.addEventListener('resize', setupStars);
 
 function Star() {
 	this.x = Math.random() * canvas.width;

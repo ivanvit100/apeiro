@@ -55,10 +55,13 @@ function createCursor(){
         let textElements = document.querySelectorAll(".textCur");
         textElements.forEach((element) => {
             element.addEventListener('mouseenter', () => {
+                let elementUnderCursor = document.elementFromPoint(event.clientX, event.clientY);
                 cursor.classList.add('text-cursor');
+                elementUnderCursor.classList.contains("white-text") && cursor.classList.add("white-text-cursor");
             });
             element.addEventListener('mouseleave', () => {
                 cursor.classList.remove('text-cursor');
+                cursor.classList.remove('white-text-cursor');
             });
         });
     }
@@ -104,7 +107,7 @@ function listener(){
 }
 function tarUpdate(){
     document.querySelector("#item").innerHTML = `
-    <h1 class="textCur">${json.title[tar]}</h1>
+    <h1 class="textCur white-text">${json.title[tar]}</h1>
     <svg class="switch prev link" viewBox="0 0 110 110">
         <path d="M90 7 L10 52 L90 97 Z" fill="none" stroke="black" stroke-width="10"/>
     </svg>
@@ -116,7 +119,7 @@ function tarUpdate(){
     <svg class="switch next link" viewBox="0 0 110 110">
         <path d="M10 7 L90 52 L10 97 Z" fill="none" stroke="black" stroke-width="10"/>
     </svg>
-    <p class="textCur">${json.description[tar]}</p>`;
+    <p class="textCur white-text">${json.description[tar]}</p>`;
     listener();
 }
 
@@ -163,5 +166,7 @@ async function testWebP(){
     console.log(`[webpStatus]: ${flag}`);
     await preloadImages(imagesToPreload);
 }
+
+isMobile && window.removeEventListener('resize', setupStars);
 
 document.addEventListener("DOMContentLoaded", testWebP);
