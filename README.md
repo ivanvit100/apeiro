@@ -10,7 +10,7 @@ Apeiro is an innovative organization specializing in the development of engaging
 4. Backend - [Minnakhmetov Almaz](mailto:mastera4ek2017@gmail.com)
 5. Technical director - [Barov Sergey]()
 6. Game designer - [Ovchinnikova Ksenia]()
-7. Game designer - [Sergeevf Ksenia]()
+7. Game designer - [Sergeeva Ksenia]()
 
 ---
 
@@ -23,6 +23,7 @@ A business card site of the company. Written using most of the practices and met
 ## Links
 1. [Business card website](https://apeirocomp.ru)
 2. [Project 001](https://dev.apeirocomp.ru)
+3. [Project 002](http://dnk.ivanvit.ru)
 
 ## Contacts
 1. [VK](https://m.vk.com/apeiroclub)
