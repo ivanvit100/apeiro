@@ -69,14 +69,45 @@ html, body{
   width: 100%;
   height: auto;
   margin-bottom: -5px;
-  filter: grayscale(80%);
-  -webkit-transition: -webkit-filter .5s;
-  transition: -webkit-filter .5s;
-  transition: filter .5s;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
-.plusSmallMargin:hover .projectImgImg{
-  -webkit-filter: none;
-  filter: none;
+.projectImg {
+  position: relative;
+  overflow: hidden;
+}
+.projectImgImg::before, .projectImgImg::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 5;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .35);
+  transition: 0.5s;
+  transform: skew(-45deg) translateX(-65%);
+}
+.projectImgImg::after{
+  bottom: 0;
+  right: 0;
+  transform: skew(-45deg) translateX(45%);
+}
+.plusSmallMargin:hover .projectImgImg::before, 
+.plusSmallMargin:hover .projectImgImg::after{
+  transform: skew(-45deg) translateX(110%);
+}
+.projectApeiro{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  opacity: 1;
+  transition: .5s;
+}
+.plusSmallMargin:hover .projectApeiro{
+  opacity: 0;
 }
 #search{
   background: #ff000052;
@@ -125,11 +156,11 @@ nav{
   position: relative;
 }
 .apeiro{
-  height: 90px;
   -webkit-filter: drop-shadow(0 0 8px #E5E7E7);
           filter: drop-shadow(0 0 8px #E5E7E7);
   -webkit-animation: moveApeiro 8s infinite;
           animation: moveApeiro 8s infinite;
+  scale: .75;
 }
 .headWrapper{
   position: absolute;
