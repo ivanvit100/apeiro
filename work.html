@@ -32,7 +32,7 @@
     <title>Apeiro | Create fiction</title>
     <link rel="shortcut icon" href="./static/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"> 
-    <link rel="stylesheet" href="./static/preloader.min.css">
+    <link rel="stylesheet" href="/static/css/preloader.min.css">
 </head>
 <body>
     <noscript style="color: white; z-index: 999;">
@@ -226,14 +226,9 @@
                             <source srcset="./static/images/project01.jpg" alt="Фон" class="projectImgImg" type="image/png"> 
                             <img src="./static/images/project01.jpg" alt="Фон" class="projectImgImg">
                         </picture>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150" class="projectApeiro">
-                            <path fill="none" d="M24.3,30C8.6,30,5,43.3,5,50s4.4,20,19.3,20c19.3,0,32.1-40,51.4-40C90.6,30,95,43.3,95,50s-4.4,20-19.30,20C56.4,70,43.6,30,21.3,29.9" stroke="#dfdfdf76" stroke-width="8" stroke-dasharray="0 256.58892822265625 2.3">
-                                <animate attributeName="stroke-dashoffset" values="0;255.68892822265625" dur=".1" fill="freeze"></animate>
-                            </path>
-                        </svg>
                     </div>
                     <h1 class="project textCur">ПРОЕКТ 001</h1>
-                    <span style="font-weight: 400" class="textCur">Нашим первым проектом, получившим поддержку от “Фонда содействия инноваций “ является игровая платформа, направленная на привлечение абитуриентов в среду обучения средних и высших образовательных учреждений.</span>
+                    <span style="font-weight: 400" class="textCur">Нашим первым проектом, получившим поддержку от “Фонда содействия инноваций“ является игровая платформа, направленная на привлечение абитуриентов в среду обучения средних и высших образовательных учреждений.</span>
                 </div>
                 <div class="space big"></div>
                 <div class="plus plus2 plusSmallMargin">
@@ -243,11 +238,6 @@
                             <source srcset="./static/images/project02.png" alt="Фон" class="projectImgImg" type="image/png"> 
                             <img src="./static/images/project02.png" alt="Фон" class="projectImgImg">
                         </picture>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="150" height="150" class="projectApeiro">
-                            <path fill="none" d="M24.3,30C8.6,30,5,43.3,5,50s4.4,20,19.3,20c19.3,0,32.1-40,51.4-40C90.6,30,95,43.3,95,50s-4.4,20-19.30,20C56.4,70,43.6,30,21.3,29.9" stroke="#dfdfdf76" stroke-width="8" stroke-dasharray="0 256.58892822265625 2.3">
-                                <animate attributeName="stroke-dashoffset" values="0;255.68892822265625" dur=".1" fill="freeze"></animate>
-                            </path>
-                        </svg>
                     </div>
                     <h1 class="project textCur">ПРОЕКТ 002</h1>
                     <span style="font-weight: 400" class="textCur">На стадии разработки находится следующий проект - цифровая платформа для организаций дополнительного образования. Целью данной платформы является автоматизация работы преподавателей и администрации.</span>
@@ -256,25 +246,27 @@
             </div>
             <div class="money white" id="price">
                 <div class="aboutH textCur white-text">
-                    <h1 class="aboutInline" style="font-weight: 800">СТОИМОСТЬ</h1>
-                    <h1 class="aboutInline" style="font-weight: 300">УСЛУГ</h1>
+                    <h1 class="aboutInline white-text" style="font-weight: 800">СТОИМОСТЬ</h1>
+                    <h1 class="aboutInline white-text" style="font-weight: 300">УСЛУГ</h1>
                 </div>
-                <h3 class="textCur">Количество предоставленных услуг зависит от выбранного вами тарифа</h3>
-                <div id="item">
-                    <h1 class="textCur white-text">Базовый</h1>
+                <h3 class="textCur white-text">Количество предоставленных услуг зависит от выбранного вами тарифа</h3>
                     <svg class="switch prev link" viewBox="0 0 110 110">
                         <path d="M90 7 L10 52 L90 97 Z" fill="none" stroke="black" stroke-width="10"/>
                     </svg>
+                <div id="item">
+                    <h1 class="textCur white-text">Базовый</h1>
+                    <div></div>
                     <picture>
                         <source srcset="./static/images/tar1.webp" alt="Тариф" class="itemImg" height="200" width="200" type="image/webp">
                         <source srcset="./static/images/tar1.png" alt="Тариф" class="itemImg" height="200" width="200" type="image/png"> 
                         <img src="./static/images/tar1.png" alt="Тариф" class="itemImg">
                     </picture>
+                    <div></div>
+                    <p class="textCur white-text">Готовая платформа на основе ранее созданных без добавления дополнительных функций на программном уровне по желанию заказчика.</p>
+                </div>
                     <svg class="switch next link" viewBox="0 0 110 110">
                         <path d="M10 7 L90 52 L10 97 Z" fill="none" stroke="black" stroke-width="10"/>
                     </svg>
-                    <p class="textCur white-text">Готовая платформа на основе ранее созданных без добавления дополнительных функций на программном уровне по желанию заказчика.</p>
-                </div>
                 <button id="more" class="link">Узнать больше</button>
                 <picture>
                     <source srcset="./static/images/coin.webp" alt="Фон" class="side coin" loading="lazy" width="291" height="400" type="image/webp">
@@ -290,9 +282,9 @@
             <center>
                 <div class="contacts" id="contacts">
                     <picture>
-                        <source srcset="./static/images/girl.webp" alt="Девушка" height="600" class="girl" loading="lazy" type="image/webp">
-                        <source srcset="./static/images/girl.png" alt="Девушка" height="600" class="girl" loading="lazy" type="image/png"> 
-                        <img src="./static/images/girl.png" alt="Девушка" height="600" class="girl" loading="lazy">
+                        <source srcset="./static/images/girl.webp" alt="Девушка" height="600" class="girl" type="image/webp">
+                        <source srcset="./static/images/girl.png" alt="Девушка" height="600" class="girl" type="image/png"> 
+                        <img src="./static/images/girl.png" alt="Девушка" height="600" class="girl">
                     </picture>
                     <div class="contact">
                         <h1 class="aboutInline">КОНТАКТЫ</h1>
@@ -341,9 +333,9 @@
                         </a>
                     </div>
                     <picture>
-                        <source srcset="./static/images/moon.webp" alt="Фон" class="moon" loading="lazy" type="image/webp">
-                        <source srcset="./static/images/moon.png" alt="Фон" class="moon" loading="lazy" type="image/png"> 
-                        <img src="./static/images/moon.png" alt="Фон" class="moon" loading="lazy">
+                        <source srcset="./static/images/moon.webp" alt="Фон" class="moon" type="image/webp">
+                        <source srcset="./static/images/moon.png" alt="Фон" class="moon" type="image/png"> 
+                        <img src="./static/images/moon.png" alt="Фон" class="moon">
                     </picture>
                 </div>
                 <footer>
@@ -381,9 +373,9 @@
             </center>
         </div>
     </div>
-    <script type="text/javascript" defer src="./static/hyper.js"></script>
-    <link rel="stylesheet" href="./static/style.css">
-    <link rel="stylesheet" async href="./static/media.css">
-    <script type="text/javascript" async src="./static/main.js"></script>
+    <script type="text/javascript" defer src="/static/js/hyper.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" async href="/static/css/media.css">
+    <script type="text/javascript" async src="/static/js/main.js"></script>
 </body>
 </html>

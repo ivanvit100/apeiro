@@ -1,4 +1,5 @@
 "use strict";
+
 const userAgent = navigator.userAgent.toLowerCase();
 const isMobile = /mobile|iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(userAgent);
 const pref = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -99,29 +100,40 @@ document.addEventListener('mousemove', (e) => {
 function listener(){
     document.querySelector('.next').addEventListener('click', () => {
         tar = tar < 2 ? tar + 1 : 1;
-        tarUpdate();
+        animateItem("slideOut");
     });
     document.querySelector('.prev').addEventListener('click', () => {
         tar = tar > 0 ? tar - 1 : 1; 
-        tarUpdate();    
+        animateItem("slideIn", true);
     });
 }
+function animateItem(animation, reverse = false){
+    const item = document.querySelector('#item');
+    item.style.animation = `${animation} 0.5s ${reverse ? "reverse" : "forwards"}`;
+    setTimeout(() => {
+        item.style.opacity = "0";
+    }, 450);
+    setTimeout(() => {
+        tarUpdate();
+        item.style.animation = `${reverse ? "slideOut" : "slideIn"} 0.5s ${reverse ? "reverse" : "forwards"}`;
+        item.style.opacity = "1";
+    }, 500);
+    setTimeout(() => {
+        item.style.animation = "none";
+    }, 1000);
+}
+
 function tarUpdate(){
     document.querySelector("#item").innerHTML = `
     <h1 class="textCur white-text">${json.title[tar]}</h1>
-    <svg class="switch prev link" viewBox="0 0 110 110">
-        <path d="M90 7 L10 52 L90 97 Z" fill="none" stroke="black" stroke-width="10"/>
-    </svg>
+    <div></div>
     <picture>
-        <source srcset="./static/images/${json.imgSrc[tar]}.webp" alt="Тариф" class="itemImg" height="200" width="200" type="image/webp">
-        <source srcset="./static/images/${json.imgSrc[tar]}.png" alt="Тариф" class="itemImg" height="200" width="200" type="image/png"> 
-        <img src="./static/images/${json.imgSrc[tar]}.png" alt="Тариф" class="itemImg">
+        <source srcset="/static/images/${json.imgSrc[tar]}.webp" alt="Тариф" class="itemImg" height="200" width="200" type="image/webp">
+        <source srcset="/static/images/${json.imgSrc[tar]}.png" alt="Тариф" class="itemImg" height="200" width="200" type="image/png"> 
+        <img src="/static/images/${json.imgSrc[tar]}.png" alt="Тариф" class="itemImg">
     </picture>
-    <svg class="switch next link" viewBox="0 0 110 110">
-        <path d="M10 7 L90 52 L10 97 Z" fill="none" stroke="black" stroke-width="10"/>
-    </svg>
+    <div></div>
     <p class="textCur white-text">${json.description[tar]}</p>`;
-    listener();
 }
 
 !pref && !isMobile && createCursor();

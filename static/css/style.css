@@ -56,58 +56,55 @@
 .text-cursor::after{
   bottom: -5px;
 }
-.scale-up{
-  transform: rotate(85deg) scale(1.3);
-  transition: transform 0.3s ease-in-out;
-}
 html, body{
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
   scrollbar-width: thin;
+}
+.projectImg{
+  overflow: hidden;
+  width: 100%;
+  border: 8px solid white;
+  position: relative;
+  margin-bottom: 30px;
+  transition: .5s;
+  -webkit-filter: drop-shadow(0 0 8px #E5E7E7);
+          filter: drop-shadow(0 0 8px #E5E7E7);
 }
 .projectImgImg{
   width: 100%;
   height: auto;
   margin-bottom: -5px;
   -webkit-transition: .5s;
-  transition: .5s;
 }
-.projectImg {
-  position: relative;
-  overflow: hidden;
-}
-.projectImgImg::before, .projectImgImg::after{
+.projectImgImg::before,
+.projectImgImg::after{
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 80px;
   z-index: 5;
   height: 100%;
-  background-color: rgba(0, 0, 0, .35);
-  transition: 0.5s;
-  transform: skew(-45deg) translateX(-65%);
+  background-color: rgba(255, 255, 255, .45);
+  transition: 0.65s;
+  transform: skew(-45deg) translateX(-250%);
 }
 .projectImgImg::after{
-  bottom: 0;
-  right: 0;
-  transform: skew(-45deg) translateX(45%);
+  transition: .8s;
+  width: 150px;
+  transform: skew(-45deg) translateX(-300%);
 }
-.plusSmallMargin:hover .projectImgImg::before, 
+.plusSmallMargin:hover .projectImg{
+  -webkit-filter: drop-shadow(0 0 13px #E5E7E7);
+          filter: drop-shadow(0 0 13px #E5E7E7);
+}
+.plusSmallMargin:hover .projectImgImg{
+  scale: 1.2;
+}
+.plusSmallMargin:hover .projectImgImg::before,
 .plusSmallMargin:hover .projectImgImg::after{
-  transform: skew(-45deg) translateX(110%);
-}
-.projectApeiro{
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 5;
-  opacity: 1;
-  transition: .5s;
-}
-.plusSmallMargin:hover .projectApeiro{
-  opacity: 0;
+  transform: skew(-45deg) translateX(580%);
 }
 #search{
   background: #ff000052;
@@ -547,14 +544,6 @@ header{
   -webkit-animation: moveApeiro 8s infinite;
           animation: moveApeiro 8s infinite;
 }
-.projectImg{
-  width: 100%;
-  border: 8px solid white;
-  position: relative;
-  margin-bottom: 30px;
-  -webkit-filter: drop-shadow(0 0 8px #E5E7E7);
-          filter: drop-shadow(0 0 8px #E5E7E7);
-}
 .project{
   text-align: center;
 }
@@ -713,14 +702,21 @@ footer > span{
   height: 50px;
   width: 50px;
   position: relative;
-  top: 130px;
   z-index: 3;
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
+.next{
+  top: -250px;
+  right: min(-20vw, -100px);
+}
+.prev{
+  top: 185px;
+  left: min(-20vw, -100px);
+}
 .switch:hover{
-  top: 135px;
+  transform: translateY(5px);
 }
 #price > h3{
   scale: 1.2;
@@ -747,7 +743,7 @@ footer > span{
   background-color: black;
   color: white;
   border: 0;
-  top: 0;
+  top: -70px;
   border-radius: 18px;
   -webkit-filter: drop-shadow(0 5px 5px #2f2f2fa3);
           filter: drop-shadow(0 5px 5px #2f2f2fa3);
@@ -756,9 +752,10 @@ footer > span{
   -webkit-transition: all .2s ease-in-out;
   -o-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
+  display: block;
 }
 #more:hover{
-  top: 5px;
+  top: -65px;
   -webkit-filter: drop-shadow(0 1px 3px #2f2f2fa3);
           filter: drop-shadow(0 1px 3px #2f2f2fa3)
 }
@@ -771,7 +768,7 @@ footer > span{
   grid-template-rows: 50px 300px 80px;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: -50px auto 0 auto;
 }
 #item > *:nth-child(1){
   -ms-grid-row: 1;
@@ -809,7 +806,7 @@ footer > span{
   -ms-grid-row: 3;
   -ms-grid-column: 3;
 }
-#item > svg, .itemImg{
+.switch, .itemImg{
   -webkit-filter: drop-shadow(0 2px 2px #2f2f2fe0);
           filter: drop-shadow(0 2px 2px #2f2f2fe0);
 }
@@ -882,16 +879,6 @@ footer > span{
   }
 }
 @media(max-width: 767px){
-  .switch{
-    height: 35px;
-    width: 35px;
-  }
-  .next{
-    right: calc(15vw - 100%/2);
-  }
-  .prev{
-    left: 15vw;
-  }
   footer{
     -ms-grid-columns: (50%)[2];
     grid-template-columns: repeat(2, 50%);
