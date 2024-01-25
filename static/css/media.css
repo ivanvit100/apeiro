@@ -132,9 +132,11 @@
   }
   .prev{
     top: 170px;
+    left: min(-20vw, -100px);
   }
   .next{
     top: -249px;
+    right: min(-20vw, -100px);
   }
   .arrow, .ico{
     scale: 0.7;

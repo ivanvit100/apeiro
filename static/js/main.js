@@ -107,6 +107,18 @@ function listener(){
         animateItem("slideIn", true);
     });
 }
+
+function download(){
+    var link = document.createElement("a");
+    link.setAttribute('download', "Apeiro_pricelist.pdf");
+    link.href = "./static/pricelist.pdf";
+    link.style.opacity = "0";
+    link.style.position = "absolute";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+}
+
 function animateItem(animation, reverse = false){
     const item = document.querySelector('#item');
     item.style.animation = `${animation} 0.5s ${reverse ? "reverse" : "forwards"}`;
