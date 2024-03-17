@@ -929,3 +929,10 @@ footer > span{
             transform: translate(-150px, 280px) !important;
   }
 }
+
+@font-face {
+  font-family: "Roboto";  
+  src: url("../static/fonts/RalewayRegular.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
