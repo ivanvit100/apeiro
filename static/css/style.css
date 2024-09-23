@@ -76,35 +76,14 @@ html, body{
   height: auto;
   margin-bottom: -5px;
   -webkit-transition: .5s;
-}
-.projectImgImg::before,
-.projectImgImg::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 80px;
-  z-index: 5;
-  height: 100%;
-  background-color: rgba(255, 255, 255, .45);
-  transition: 0.65s;
-  transform: skew(-45deg) translateX(-250%);
-}
-.projectImgImg::after{
-  transition: .8s;
-  width: 150px;
-  transform: skew(-45deg) translateX(-300%);
+  filter: grayscale(.5);
 }
 .plusSmallMargin:hover .projectImg{
   -webkit-filter: drop-shadow(0 0 13px #E5E7E7);
           filter: drop-shadow(0 0 13px #E5E7E7);
 }
 .plusSmallMargin:hover .projectImgImg{
-  scale: 1.2;
-}
-.plusSmallMargin:hover .projectImgImg::before,
-.plusSmallMargin:hover .projectImgImg::after{
-  transform: skew(-45deg) translateX(580%);
+  filter: grayscale(0);
 }
 #search{
   background: #ff000052;
@@ -709,11 +688,11 @@ footer > span{
 }
 .next{
   top: -250px;
-  right: min(-20vw, -100px);
+  right: min(-20vw, -130px);
 }
 .prev{
   top: 185px;
-  left: min(-20vw, -100px);
+  left: min(-20vw, -130px);
 }
 .switch:hover{
   transform: translateY(5px);
@@ -743,7 +722,7 @@ footer > span{
   background-color: black;
   color: white;
   border: 0;
-  top: -70px;
+  top: -60px;
   border-radius: 18px;
   -webkit-filter: drop-shadow(0 5px 5px #2f2f2fa3);
           filter: drop-shadow(0 5px 5px #2f2f2fa3);
@@ -755,7 +734,7 @@ footer > span{
   display: block;
 }
 #more:hover{
-  top: -65px;
+  top: -55px;
   -webkit-filter: drop-shadow(0 1px 3px #2f2f2fa3);
           filter: drop-shadow(0 1px 3px #2f2f2fa3)
 }
@@ -950,3 +929,10 @@ footer > span{
             transform: translate(-150px, 280px) !important;
   }
 }
+
+@font-face {
+  font-family: "Roboto";  
+  src: url("../static/fonts/RalewayRegular.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+} 
