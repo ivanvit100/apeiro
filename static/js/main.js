@@ -109,6 +109,7 @@ function listener(){
 }
 
 function download(){
+    console.log("[download] Downloading pricelist");
     var link = document.createElement("a");
     link.setAttribute('download', "Apeiro_pricelist.pdf");
     link.href = "./static/pricelist.pdf";
