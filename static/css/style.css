@@ -831,6 +831,11 @@ footer > span{
       -ms-flex-pack: center;
           justify-content: center;
 }
+span a {
+  color: #FCFCFC;
+  text-decoration: underline;
+  font-style: italic;
+}
 
 @media(max-width: 1216px){
   .triangle{
