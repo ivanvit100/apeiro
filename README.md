@@ -1,4 +1,4 @@
-![preview](https://ivanvit.ru/static/apeiro.jpg)
+![preview](/preview.png)
 # Apeiro
 
 Apeiro is an innovative organization specializing in the development of engaging and educational visual novels that will introduce you to your future educational institution and help you decide on a direction. Our team of experienced writers, artists and programmers work together to create quality and engaging content that will appeal to a wide audience.
